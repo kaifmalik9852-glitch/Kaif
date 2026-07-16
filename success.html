@@ -4,46 +4,44 @@
     <meta charset="UTF-8">
     <title>Order Confirmed</title>
     <style>
-    .confirmation-box {
-        padding: 40px 20px; /* Thoda padding badhaya */
-        margin: 20px;
-        border: 2px solid #00ff66;
-        border-radius: 15px;
-        text-align: center;
-        background: #0a0a0a;
-    }
-
-    h1.order-title {
-        font-size: 2.2rem; /* Title ko bada kiya */
-        color: #00ff66;
-        margin-bottom: 20px;
-        line-height: 1.2;
-    }
-
-    p.order-msg {
-        font-size: 1.1rem; /* Message ko padhne layak bada kiya */
-        color: #ffffff;
-        margin-bottom: 30px;
-        word-wrap: break-word; /* Text screen se bahar nahi jayega */
-        max-width: 100%;
-    }
-</style>
-
-
-    
+        body { 
+            background: #05080c; 
+            color: #00ff66; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            text-align: center; 
+            font-family: 'Courier New', Courier, monospace; 
+            margin: 0;
+        }
+        .box { 
+            border: 2px solid #00ff66; 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.3); 
+        }
+        h1 { text-shadow: 0 0 10px #00ff66; margin-bottom: 20px; }
+        .btn-home { 
+            color: #ffffff; 
+            text-decoration: none; 
+            border: 1px solid #00ff66; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            display: inline-block; 
+            margin-top: 20px; 
+            transition: 0.3s;
+        }
+        .btn-home:hover { background: #00ff66; color: #05080c; }
+    </style>
 </head>
 <body>
-    <!-- HTML structure -->
-<div class="confirmation-box">
-    <h1 class="order-title">ORDER CONFIRMED! 🎉</h1>
-    <p class="order-msg">
-        Your order has been placed successfully.<br>
-        Our team will contact you shortly for verification.
-    </p>
-    <a href="index.html" class="btn">confirm</a>
-</div>
+    <div class="box">
+        <h1>ORDER CONFIRMED! 🥳</h1>
+        <p>Your order has been placed successfully.<br>Our team will contact you shortly for verification.</p>
+        <a href="index.html" class="btn-home">Return to Home</a>
+    </div>
 </body>
 </html>
 
             
-
