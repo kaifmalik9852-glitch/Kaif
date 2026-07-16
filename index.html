@@ -5,59 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESP-01 ESP8266 WiFi Module - Cyber Store</title>
     <style>
+        /* Apka original Cyber Theme */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Courier New', Courier, monospace, sans-serif; }
-        body { background-color: #05080c; color: #00ff66; overflow-x: hidden; line-height: 1.6; }
-        
-        /* Modal Style - Form ko hide karne ke liye */
-        .modal {
-            display: none; 
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(5, 8, 12, 0.95);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: #090f16;
-            border: 2px solid #00ff66;
-            width: 100%;
-            max-width: 440px;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(0, 255, 102, 0.4);
-            position: relative;
-        }
-
-        .close-btn { position: absolute; top: 15px; right: 15px; color: #ff3366; cursor: pointer; font-weight: bold; }
-
-        /* Baki CSS wahi hai jo aapne di thi */
-        .btn { padding: 16px; cursor: pointer; border-radius: 6px; font-weight: 900; text-transform: uppercase; border: none; width: 100%; }
+        body { background-color: #05080c; color: #00ff66; overflow-x: hidden; }
+        .navbar { height: 75px; background: rgba(5, 8, 12, 0.9); border-bottom: 2px solid #00ff66; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; position: fixed; width: 100%; z-index: 1000; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 120px 24px; text-align: center; }
+        .btn { padding: 16px; border-radius: 6px; font-weight: 900; text-transform: uppercase; cursor: pointer; width: 100%; border: none; }
         .btn-online { background: #00ff66; color: #05080c; }
-        .btn-cod { background: transparent; color: #ffffff; border: 2px solid #ffffff; }
-        .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; color: #00ff66; font-size: 0.8rem; }
+        .btn-cod { background: transparent; color: #ffffff; border: 2px solid #ffffff; margin-top: 15px; }
+        
+        /* Modal Style - Ise hide rakha hai */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; padding: 20px; }
+        .modal-content { background: #090f16; border: 2px solid #00ff66; max-width: 440px; margin: 10% auto; padding: 25px; border-radius: 12px; }
+        .close-btn { color: #ff3366; float: right; cursor: pointer; font-weight: bold; }
+        .input-group { margin-bottom: 15px; text-align: left; }
         .input-group input { width: 100%; padding: 10px; background: #05080c; border: 1px solid #00ff66; color: #fff; border-radius: 6px; }
     </style>
 </head>
 <body>
 
-    <div class="container" style="padding-top: 100px; text-align: center; max-width: 500px; margin: auto;">
-        <h1>ESP8266 ESP-01</h1>
-        <p>Ultra-compact wireless communication module.</p>
+    <nav class="navbar">
+        <div class="logo">CYBER<span>STORE</span></div>
+    </nav>
+
+    <div class="container">
+        <h1>ESP8266 ESP-01<br><span style="color:#00ff66;">WIFI MODULE</span></h1>
+        <p style="margin: 20px 0;">Ultra-compact wireless module for smart automation.</p>
         
-        <div class="btn-container" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-            <a href="#" class="btn btn-online">⚡ BUY NOW</a>
-            <button onclick="openModal()" class="btn btn-cod">📦 CASH ON DELIVERY (COD)</button>
-        </div>
+        <a href="#" class="btn btn-online">⚡ BUY NOW</a>
+        <button onclick="document.getElementById('codModal').style.display='block'" class="btn btn-cod">📦 CASH ON DELIVERY</button>
     </div>
 
     <div id="codModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">X CLOSE</span>
+            <span class="close-btn" onclick="document.getElementById('codModal').style.display='none'">X CLOSE</span>
             <h3>SHIPPING INFORMATION</h3>
             <form id="my-form" action="https://formspree.io/f/xaqrqlyo" method="POST">
                 <div class="input-group">
@@ -78,25 +59,12 @@
     </div>
 
     <script>
-        function openModal() { document.getElementById('codModal').style.display = 'flex'; }
-        function closeModal() { document.getElementById('codModal').style.display = 'none'; }
-        
         var form = document.getElementById("my-form");
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-            var data = new FormData(form);
-            fetch(form.action, {
-                method: form.method,
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) { window.location.href = "success.html"; }
-                else { alert("Error! Try again."); }
-            });
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            fetch(form.action, { method: form.method, body: new FormData(form) })
+            .then(res => { if(res.ok) window.location.href = "success.html"; });
         });
     </script>
 </body>
 </html>
-
-                
-    
