@@ -506,11 +506,11 @@ Border-radius: 50%;<!DOCTYPE html>
             <span class="close-btn" onclick="closeModal()">X CLOSE</span>
             <h3>SHIPPING INFORMATION</h3>
             <form id="my-form" action="https://formspree.io/f/xaqrqlyo" method="POST">
-                
-                <div class="input-group">
-                    <label>Full Name</label>
-                    <input type="text" name="name" required>
-                </div>
+                    <div id="codModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">X CLOSE</span>
+            <h3>SHIPPING INFORMATION</h3>
+            <form id="my-form" action="https://formspree.io/f/xaqrqlyo" method="POST">
                 <div class="input-group">
                     <label>Mobile Number</label>
                     <input type="tel" name="phone" required>
@@ -519,6 +519,36 @@ Border-radius: 50%;<!DOCTYPE html>
                     <label>House / Flat No. & Area</label>
                     <input type="text" name="address" required>
                 </div>
+                <button type="submit" class="btn btn-online" style="margin-top: 10px; width: 100%;">PLACE ORDER NOW</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+      var form = document.getElementById("my-form");
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(response => {
+          if (response.ok) {
+            window.location.href = "success.html"; 
+          } else {
+            alert("Oops! Kuch error aaya, phir se try karein.");
+          }
+        });
+      }
+      form.addEventListener("submit", handleSubmit);
+    </script>
+                
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                
                 <div class="input-group">
                     <label>Landmark (Optional)</label>
                     <input type="text" name="landmark">
