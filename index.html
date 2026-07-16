@@ -476,9 +476,7 @@ Border-radius: 50%;<!DOCTYPE html>
                 <button onclick="openModal()" class="btn btn-cod">
                     📦 CASH ON DELIVERY (COD)
                 </button>
-            <button onclick="openModal()" class="btn btn-cod">
-    📦 CASH ON DELIVERY (COD)
-</button>
+            
 
 <div style="margin-top: 25px; text-align: center;">
     <p style="color: #ffffff; font-size: 13px; font-family: monospace; padding: 0 10px; margin-bottom: 15px;">
@@ -494,7 +492,7 @@ Border-radius: 50%;<!DOCTYPE html>
                 
 
     <!-- Popup Window Control Script -->
-    <script>
+        <script>
         function openModal() {
             document.getElementById('codModal').style.display = 'flex';
         }
@@ -502,25 +500,69 @@ Border-radius: 50%;<!DOCTYPE html>
             document.getElementById('codModal').style.display = 'none';
         }
     </script>
-<script>
-  var form = document.getElementById("my-form");
-  async function handleSubmit(event) {
-    event.preventDefault();
-    var data = new FormData(event.target);
-    fetch(event.target.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        window.location.href = "success.html";
-      } else {
-        alert("Oops! Kuch error aaya, phir se try karein.");
+
+    <div id="codModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">X CLOSE</span>
+            <h3>SHIPPING INFORMATION</h3>
+            <form id="my-form" action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label>House / Flat No. & Area</label>
+                    <input type="text" name="address" required>
+                </div>
+                <div class="input-group">
+                    <label>Landmark (Optional)</label>
+                    <input type="text" name="landmark">
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>City</label>
+                        <input type="text" name="city" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Pincode</label>
+                        <input type="number" name="pincode" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>State</label>
+                    <input type="text" name="state" required>
+                </div>
+                <button type="submit" class="btn btn-online" style="margin-top: 10px; width: 100%;">PLACE ORDER NOW</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+      var form = document.getElementById("my-form");
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(response => {
+          if (response.ok) {
+            alert("Order Successfully Placed!");
+            closeModal();
+            form.reset();
+          } else {
+            alert("Oops! Kuch error aaya, phir se try karein.");
+          }
+        });
       }
-    });
-  }
-  form.addEventListener("submit", handleSubmit);
-</script>
+      form.addEventListener("submit", handleSubmit);
+    </script>
+                
     
 </body>
 </html>
