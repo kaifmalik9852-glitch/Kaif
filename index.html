@@ -1,90 +1,526 @@
-<!DOCTYPE html>
+
+
+
+Border-radius: 50%;<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESP-01 ESP8266 WiFi Module - Cyber Store</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Courier New', Courier, monospace, sans-serif; }
-        body { background-color: #05080c; color: #00ff66; overflow-x: hidden; line-height: 1.6; background-image: radial-gradient(circle at 50% 20%, rgba(0, 255, 102, 0.15), transparent 50%), linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 102, 0.03) 1px, transparent 1px); background-size: 100% 100%, 25px 25px, 25px 25px; }
-        a { text-decoration: none; color: inherit; }
-        .navbar { position: fixed; top: 0; left: 0; right: 0; height: 75px; background: rgba(5, 8, 12, 0.9); backdrop-filter: blur(15px); border-bottom: 2px solid #00ff66; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; z-index: 1000; }
-        .logo { font-size: 1.4rem; font-weight: 900; letter-spacing: 2px; color: #ffffff; text-shadow: 0 0 10px #00ff66; }
-        .logo span { color: #00ff66; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 120px 24px 60px 24px; display: flex; flex-direction: column; align-items: center; }
-        .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 255, 102, 0.1); border: 1px solid #00ff66; padding: 6px 16px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-bottom: 24px; }
-        h1 { font-size: 2.2rem; color: #ffffff; text-align: center; margin-bottom: 10px; }
-        .model-name { color: #00ff66; display: block; font-weight: 900; }
-        .cyber-desc { color: #a3b8cc; font-size: 0.95rem; text-align: center; max-width: 650px; margin-bottom: 30px; border-left: 3px solid #00ff66; border-right: 3px solid #00ff66; padding: 10px 20px; }
-        .img-card { width: 100%; max-width: 340px; background: radial-gradient(circle, rgba(0, 255, 102, 0.15) 0%, rgba(5, 8, 12, 0.9) 80%); border: 2px solid #00ff66; border-radius: 12px; padding: 30px; margin-bottom: 30px; display: flex; justify-content: center; }
-        .mcu-pic { width: 100%; max-height: 240px; object-fit: contain; filter: drop-shadow(0 0 15px rgba(0, 255, 102, 0.5)); }
-        .specs-mini { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 35px; }
-        .spec-item { background: rgba(5, 8, 12, 0.8); border: 1px dashed #00ff66; padding: 6px 14px; font-size: 0.8rem; color: #ffffff; }
-        .price-section { width: 100%; max-width: 480px; background: rgba(5, 8, 12, 0.95); border: 2px solid #00ff66; border-radius: 12px; padding: 30px; text-align: center; margin-bottom: 40px; }
-        .current-p { font-size: 2.8rem; font-weight: bold; color: #ffffff; }
-        .old-p { font-size: 1.3rem; color: #ff3366; text-decoration: line-through; }
-        .btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; border-radius: 6px; font-size: 1rem; font-weight: 900; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 15px; }
-        .btn-online { background: #00ff66; color: #05080c; border: 2px solid #00ff66; }
-        .btn-cod { background: transparent; color: #ffffff; border: 2px solid #ffffff; }
+        /* Cyber Hacking Green Theme Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+        }
+        
+        body {
+            background-color: #05080c;
+            color: #00ff66;
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 50% 20%, rgba(0, 255, 102, 0.15), transparent 50%),
+                linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 102, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 25px 25px, 25px 25px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Neon Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 75px;
+            background: rgba(5, 8, 12, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 2px solid #00ff66;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 0 0 10px #00ff66;
+        }
+
+        .logo span {
+            color: #00ff66;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 24px 60px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Status Tag */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 255, 102, 0.1);
+            border: 1px solid #00ff66;
+            color: #00ff66;
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
+            text-transform: uppercase;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00ff66;
+
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 8px #00ff66; }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
+
+        /* Title */
+        h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+        }
+
+        .model-name {
+            color: #00ff66;
+            text-shadow: 0 0 15px rgba(0, 255, 102, 0.6);
+            display: block;
+            font-weight: 900;
+        }
+
+        /* Description Paragraph */
+        .cyber-desc {
+            color: #a3b8cc;
+            font-size: 0.95rem;
+            text-align: center;
+            max-width: 650px;
+            margin-bottom: 30px;
+            border-left: 3px solid #00ff66;
+            border-right: 3px solid #00ff66;
+            padding: 10px 20px;
+            background: rgba(0, 255, 102, 0.02);
+        }
+
+        /* High Quality Transparent Product Image Box */
+        .img-card {
+            width: 100%;
+            max-width: 340px;
+            background: radial-gradient(circle, rgba(0, 255, 102, 0.15) 0%, rgba(5, 8, 12, 0.9) 80%);
+            border: 2px solid #00ff66;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.35);
+            position: relative;
+        }
+
+        .img-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            border-radius: 12px;
+            background: transparent;
+            pointer-events: none;
+            box-shadow: inset 0 0 15px rgba(0, 255, 102, 0.3);
+        }
+
+        .mcu-pic {
+            width: 100%;
+            height: auto;
+            max-height: 240px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 102, 0.5));
+        }
+
+        /* Specs Wrapper */
+        .specs-mini {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .spec-item {
+            background: rgba(5, 8, 12, 0.8);
+            border: 1px dashed #00ff66;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            color: #ffffff;
+            border-radius: 4px;
+        }
+
+        /* Price Segment */
+        .price-section {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(5, 8, 12, 0.95);
+            border: 2px solid #00ff66;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.15);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .price-title {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #88a0b0;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .price-group {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .current-p {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .old-p {
+            font-size: 1.3rem;
+            color: #ff3366;
+            text-decoration: line-through;
+        }
+
+        /* Dual Buttons */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-online {
+            background: #00ff66;
+            color: #05080c;
+            border: 2px solid #00ff66;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+        }
+
+        .btn-online:hover {
+            background: transparent;
+            color: #00ff66;
+            box-shadow: 0 0 25px #00ff66;
+        }
+
+        .btn-cod {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-cod:hover {
+            border-color: #00ff66;
+            color: #00ff66;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+        }
+
+        /* Detailed Tech Description Section */
+        .details-panel {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(5, 8, 12, 0.9);
+            border-top: 2px solid #00ff66;
+            padding: 40px 20px;
+            margin-top: 20px;
+        }
+
+        .details-title {
+            font-size: 1.4rem;
+            color: #ffffff;
+            border-bottom: 1px solid #00ff66;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .details-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .details-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            color: #a3b8cc;
+            font-size: 0.9rem;
+        }
+
+        .details-list li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: #00ff66;
+            font-weight: bold;
+        }
+
+        .details-list strong {
+            color: #ffffff;
+        }
+
+        /* 🟢 POPUP MODAL STYLES */
+        .modal {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5, 8, 12, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #090f16;
+            border: 2px solid #00ff66;
+            width: 100%;
+            max-width: 440px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.4);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto; /* Scrollable if screen is small */
+        }
+
+        /* Customize Scrollbar for Cyber Theme */
+        .modal-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #00ff66;
+            border-radius: 3px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #ff3366;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px #ff3366;
+        }
+
+        .modal-content h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-size: 1.2rem;
+            letter-spacing: 1.5px;
+            border-bottom: 1px dashed #00ff66;
+            padding-bottom: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 14px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.75rem;
+            color: #00ff66;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background: #05080c;
+            border: 1px solid #00ff66;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        /* Mini Fields Row */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .input-group input:focus, .input-group textarea:focus {
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+        }
     </style>
 </head>
 <body>
 
+    <!-- Header Navigation -->
     <nav class="navbar">
         <div class="logo">CYBER<span>STORE</span></div>
-        <div style="font-size: 0.8rem; color: #00ff66;">SECURE PORT: 8080</div>
+        <div style="font-size: 0.8rem; color: #00ff66; text-shadow: 0 0 5px #00ff66;">SECURE PORT: 8080</div>
     </nav>
 
+    <!-- Main Store Panel -->
     <div class="container">
-        <div class="status-badge">SYSTEM: ONLINE & READY</div>
-        <h1>ESP8266 ESP-01<br><span class="model-name">WIFI TRANSCEIVER MODULE</span></h1>
-        
-        <p class="cyber-desc">Ultra-compact wireless communication module designed for high-end internet automation and embedded server setups.</p>
-
-        <div class="img-card">
-            <img class="mcu-pic" src="NODEMCU1_1024x1024.jpg" alt="ESP-01 Module">
+        <!-- Live Status Tag -->
+        <div class="status-badge">
+            <span class="pulse-dot"></span> SYSTEM: ONLINE & READY TO SHIELD
         </div>
 
+        <!-- Product Name -->
+        <h1>
+            ESP8266 ESP-01<br>
+            <span class="model-name">WIFI TRANSCEIVER MODULE</span>
+        </h1>
+
+        <!-- Short Pitch Description -->
+        <p class="cyber-desc">
+            Ultra-compact wireless communication module designed for high-end internet automation, smart custom nodes, and embedded server setups. Direct MCU controls with integrated TCP/IP protocol stack.
+        </p>
+
+        <!-- Product Visual High Definition Box -->
+        <div class="img-card">
+            <img class="mcu-pic" src="NODEMCU1_1024x1024.jpg" alt="HD ESP-01 ESP8266 WiFi Module">
+        </div>
+
+        <!-- Mini Cyber Specs -->
         <div class="specs-mini">
             <div class="spec-item">⚡ VOLTAGE: 3.3V</div>
-            <div class="spec-item">📡 PROTOCOL: TCP/IP</div>
+            <div class="spec-item">📡 PROTOCOL: TCP/IP / Wi-Fi Direct (P2P)</div>
+            <div class="spec-item">💻 INTERFACE: SDIO / SPI / UART</div>
+            <div class="spec-item">🔥 BAUD RATE: 115200 default</div>
         </div>
 
+        <!-- Checkout Box -->
         <div class="price-section" id="purchase">
-            <div class="current-p">₹499 <span class="old-p">₹999</span></div>
+            <div class="price-title">EXCLUSIVE LAB OFFER</div>
+            <div class="price-group">
+                <span class="current-p">₹499</span>
+                <span class="old-p">₹999</span>
+            </div>
             
-            <a href="#" class="btn btn-online">⚡ BUY NOW (ONLINE)</a>
-            <button onclick="openModal()" class="btn btn-cod">📦 CASH ON DELIVERY (COD)</button>
+            <!-- Dual Buttons Grid -->
+            <div class="btn-container">
+                <!-- Buy Now Button (WhatsApp) -->
+                <a href="https://wa.me/919999999999?text=Hi!%20I%20want%20to%20order%20ESP8266%20ESP-01%20Module%20for%20Rs%20499" target="_blank" class="btn btn-online">
+                    ⚡ BUY NOW (ONLINE PAYMENT)
+                </a>
+                
+                <!-- Cash on Delivery Button -->
+                <button onclick="openModal()" class="btn btn-cod">
+                    📦 CASH ON DELIVERY (COD)
+                </button>
+            <button onclick="openModal()" class="btn btn-cod">
+    📦 CASH ON DELIVERY (COD)
+</button>
 
-            <!-- Description & Call Now Section -->
-            <p style="color: #ffffff; font-size: 13px; text-align: center; margin-top: 20px; font-family: monospace;">
-               If product is damaged, contact within 24h with photo for replacement.<br>
-               <span style="color: #ff4d4d; font-weight: bold;">Note: Only product replacement. No cash refunds.</span>
-            </p>
+<div style="margin-top: 25px; text-align: center;">
+    <p style="color: #ffffff; font-size: 13px; font-family: monospace; padding: 0 10px; margin-bottom: 15px;">
+        If the product is damaged, contact within 24h with a photo for a free replacement.<br>
+        <span style="color: #ff4d4d; font-weight: bold;">Note: Only product replacement available. No cash refunds.</span>
+    </p>
 
-            <a href="tel:+919286225229" style="display: block; width: 100%; margin-top: 15px; padding: 15px; background: transparent; color: #00ff66; text-decoration: none; border: 2px solid #00ff66; border-radius: 5px; font-weight: bold; text-align: center; box-shadow: 0 0 10px #00ff66;">
-               📞 CALL NOW
-            </a>
-        </div>
-    </div>
+    <a href="tel:+919286225229" 
+       style="display: block; width: 100%; padding: 15px; background: transparent; color: #00ff66; text-decoration: none; border: 2px solid #00ff66; border-radius: 50px; font-weight: bold; text-align: center; box-shadow: 0 0 10px #00ff66;">
+       📞 CALL NOW
+    </a>
+</div>
+                
 
-    <!-- Modal for COD -->
-    <div id="codModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(5,8,12,0.95); z-index:2000; justify-content:center; align-items:center;">
-        <div style="background:#090f16; border:2px solid #00ff66; padding:25px; border-radius:12px; width:90%; max-width:400px; color:white;">
-            <h3 style="text-align:center; margin-bottom:15px;">COD ORDER FORM</h3>
-            <form action="YOUR_FORM_LINK_HERE" method="POST">
-                <input type="text" name="name" placeholder="Full Name" required style="width:100%; padding:10px; margin-bottom:10px; background:#05080c; border:1px solid #00ff66; color:white;">
-                <input type="text" name="phone" placeholder="Phone Number" required style="width:100%; padding:10px; margin-bottom:10px; background:#05080c; border:1px solid #00ff66; color:white;">
-                <button type="submit" class="btn btn-online">PLACE ORDER</button>
-                <button type="button" onclick="closeModal()" style="width:100%; margin-top:10px; padding:10px; background:transparent; border:1px solid #ff3366; color:#ff3366; cursor:pointer;">CLOSE</button>
-            </form>
-        </div>
-    </div>
-
+    <!-- Popup Window Control Script -->
     <script>
-        function openModal() { document.getElementById('codModal').style.display = 'flex'; }
-        function closeModal() { document.getElementById('codModal').style.display = 'none'; }
+        function openModal() {
+            document.getElementById('codModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('codModal').style.display = 'none';
+        }
     </script>
+<script>
+  var form = document.getElementById("my-form");
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = "success.html";
+      } else {
+        alert("Oops! Kuch error aaya, phir se try karein.");
+      }
+    });
+  }
+  form.addEventListener("submit", handleSubmit);
+</script>
+    
 </body>
 </html>
-
