@@ -473,7 +473,16 @@
                 <button onclick="openModal()" class="btn btn-cod">
                     📦 CASH ON DELIVERY (COD)
                 </button>
-            </div>
+            </div><!-- Description Text -->
+<p style="color: #ffffff; font-size: 14px; text-align: center; margin-top: 10px;">
+   If the product is damaged or not working, please contact us within 24 hours of delivery with a photo for a free replacement.
+</p>
+
+<!-- WhatsApp Support Button -->
+<a href="https://wa.me/919286225229?text=Hello,%20mujhe%20product%20ke%20bare%20mein%20baat%20karni%20hai." 
+   style="display: block; width: 90%; margin: 15px auto; padding: 15px; background-color: #25D366; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; text-align: center; border: 2px solid #ffffff;">
+   💬 WHATSAPP SUPPORT
+</a>
         </div>
 
         <!-- Core Specs & Detailed Description -->
@@ -494,16 +503,12 @@
             <span class="close-btn" onclick="closeModal()">✕ CLOSE</span>
             <h3>SHIPPING INFORMATION</h3>
             
-            <!-- FORM HANDLER: Replace "YOUR_ENDPOINT_KEY_OR_EMAIL" with your FormSubmit Token or Email -->
-           <form action="https://formsubmit.co/00f37a1452ff996a3e1c4a6f9aca760b" method="POST">
-    <input type="hidden" name="_subject" value="New COD Order Recieved!">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="Product" value="ESP8266 ESP-01 WiFi Module - ₹499 COD">
-    <input type="hidden" name="_next" value="https://kaifmalik9852-glitch.github.io/success.html">
-               
-               
-
-                <!-- Name Field -->
+            <form id="my-form" action="https://formspree.io/f/xaqrqlyo" method="POST">
+  <!-- niche wali lines mein action hata do, sirf hidden inputs rakho -->
+  <input type="hidden" name="_subject" value="New COD Order Recieved!">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="Product" value="ESP8266 ESP-01 WiFi Module - ₹499 COD">
+                
                 <div class="input-group">
                     <label>Full Name</label>
                     <input type="text" name="Customer Name" required placeholder="Enter your full name">
@@ -559,6 +564,25 @@
             document.getElementById('codModal').style.display = 'none';
         }
     </script>
-
+<script>
+  var form = document.getElementById("my-form");
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = "success.html";
+      } else {
+        alert("Oops! Kuch error aaya, phir se try karein.");
+      }
+    });
+  }
+  form.addEventListener("submit", handleSubmit);
+</script>
+    
 </body>
                 </html>
