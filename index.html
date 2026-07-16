@@ -494,11 +494,11 @@
             <span class="close-btn" onclick="closeModal()">✕ CLOSE</span>
             <h3>SHIPPING INFORMATION</h3>
             
-            <form action="https://formspree.io/f/xaqrqlyo" method="POST">
-    <input type="hidden" name="_next" value="https://kaifmalik9852-glitch.github.io/success.html">
-    <input type="hidden" name="_subject" value="New COD Order Recieved!">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="Product" value="ESP8266 ESP-01 WiFi Module - ₹499 COD">
+            <form id="my-form" action="https://formspree.io/f/xaqrqlyo" method="POST">
+  <!-- niche wali lines mein action hata do, sirf hidden inputs rakho -->
+  <input type="hidden" name="_subject" value="New COD Order Recieved!">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="Product" value="ESP8266 ESP-01 WiFi Module - ₹499 COD">
                 
                 <div class="input-group">
                     <label>Full Name</label>
@@ -555,6 +555,25 @@
             document.getElementById('codModal').style.display = 'none';
         }
     </script>
-
+<script>
+  var form = document.getElementById("my-form");
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = "success.html";
+      } else {
+        alert("Oops! Kuch error aaya, phir se try karein.");
+      }
+    });
+  }
+  form.addEventListener("submit", handleSubmit);
+</script>
+    
 </body>
 </html>
