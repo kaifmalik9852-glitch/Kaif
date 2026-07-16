@@ -1,4 +1,4 @@
-Border-radius: 50%;<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -87,15 +87,13 @@ Border-radius: 50%;<!DOCTYPE html>
             margin-bottom: 24px;
             box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
             text-transform: uppercase;
-        
-#codModal { display: none; }
-    
+        }
 
         .pulse-dot {
             width: 8px;
             height: 8px;
             background-color: #00ff66;
-
+            border-radius: 50%;
             display: inline-block;
             animation: pulse 1.5s infinite;
         }
@@ -475,64 +473,92 @@ Border-radius: 50%;<!DOCTYPE html>
                 <button onclick="openModal()" class="btn btn-cod">
                     📦 CASH ON DELIVERY (COD)
                 </button>
-            
+            </div>
+        </div>
 
-<div style="margin-top: 25px; text-align: center;">
-    <p style="color: #ffffff; font-size: 13px; font-family: monospace; padding: 0 10px; margin-bottom: 15px;">
-        If the product is damaged, contact within 24h with a photo for a free replacement.<br>
-        <span style="color: #ff4d4d; font-weight: bold;">Note: Only product replacement available. No cash refunds.</span>
-    </p>
+        <!-- Core Specs & Detailed Description -->
+        <section class="details-panel">
+            <h3 class="details-title">Engine Features & Log</h3>
+            <ul class="details-list">
+                <li><strong>Ultimate IoT Connectivity:</strong> This module runs standalone on 802.11 b/g/n, letting you boot custom web servers or link IoT devices instantly.</li>
+                <li><strong>Integrated Hardware:</strong> Includes on-board PCB antenna, power management converter, and high performance processor core.</li>
+                <li><strong>Fully Programmable:</strong> Supports AT commands directly out-of-the-box, or flash it with custom Arduino IDE code for absolute control.</li>
+                <li><strong>Smart Power Saving:</strong> Super-efficient sleep modes for long battery-operated sensor projects.</li>
+            </ul>
+        </section>
+    </div>
 
-    <a href="tel:+919286225229" 
-       style="display: block; width: 100%; padding: 15px; background: transparent; color: #00ff66; text-decoration: none; border: 2px solid #00ff66; border-radius: 50px; font-weight: bold; text-align: center; box-shadow: 0 0 10px #00ff66;">
-       📞 CALL NOW
-    </a>
-</div>
-                
-
-        <div id="codModal" class="modal">
+    <!-- 🟢 COD FORM POPUP (With Split Address Fields) -->
+    <div id="codModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">X CLOSE</span>
+            <span class="close-btn" onclick="closeModal()">✕ CLOSE</span>
             <h3>SHIPPING INFORMATION</h3>
-            <form id="my-form" action="https://formspree.io/f/xaqrqlyo" method="POST">
+            
+            <!-- FORM HANDLER: Replace "YOUR_ENDPOINT_KEY_OR_EMAIL" with your FormSubmit Token or Email -->
+           <form action="https://formsubmit.co/00f37a1452ff996a3e1c4a6f9aca760b" method="POST">
+    <input type="hidden" name="_subject" value="New COD Order Recieved!">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="Product" value="ESP8266 ESP-01 WiFi Module - ₹499 COD">
+    <input type="hidden" name="_next" value="https://kaifmalik9852-glitch.github.io/success.html">
+               
+               
+
+                <!-- Name Field -->
                 <div class="input-group">
                     <label>Full Name</label>
-                    <input type="text" name="name" required>
+                    <input type="text" name="Customer Name" required placeholder="Enter your full name">
                 </div>
+
+                <!-- Contact Field -->
                 <div class="input-group">
                     <label>Mobile Number</label>
-                    <input type="tel" name="phone" required>
+                    <input type="tel" name="Phone" pattern="[0-9]{10}" required placeholder="10-digit mobile number">
                 </div>
+
+                <!-- House Number / Flat / Area Field -->
                 <div class="input-group">
                     <label>House / Flat No. & Area</label>
-                    <input type="text" name="address" required>
+                    <input type="text" name="House and Area" required placeholder="Flat No, Building, Street Name">
                 </div>
+
+                <!-- Landmark Field -->
                 <div class="input-group">
-                    <label>City & Pincode</label>
-                    <input type="text" name="city_zip" required>
+                    <label>Landmark (Optional)</label>
+                    <input type="text" name="Landmark" placeholder="e.g. Near Cyber Cafe, Opposite Station">
                 </div>
-                <button type="submit" class="btn btn-online" style="width: 100%; margin-top: 10px;">PLACE ORDER NOW</button>
+
+                <!-- City & Pincode Grid -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>City</label>
+                        <input type="text" name="City" required placeholder="e.g. Delhi">
+                    </div>
+                    <div class="input-group">
+                        <label>Pincode</label>
+                        <input type="text" name="Pincode" pattern="[0-9]{6}" required placeholder="6-digit Pincode">
+                    </div>
+                </div>
+
+                <!-- State Field -->
+                <div class="input-group">
+                    <label>State</label>
+                    <input type="text" name="State" required placeholder="e.g. Uttar Pradesh">
+                </div>
+                
+                <button type="submit" class="btn btn-online" style="margin-top: 15px;">PLACE ORDER NOW</button>
             </form>
         </div>
     </div>
 
+    <!-- Popup Window Control Script -->
     <script>
-        function openModal() { document.getElementById('codModal').style.display = 'block'; }
-        function closeModal() { document.getElementById('codModal').style.display = 'none'; }
-        
-        var form = document.getElementById("my-form");
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-            var data = new FormData(form);
-            fetch(form.action, {
-                method: form.method,
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) { window.location.href = "success.html"; }
-                else { alert("Error! Phir se try karein."); }
-            });
-        });
+        function openModal() {
+            document.getElementById('codModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('codModal').style.display = 'none';
+        }
     </script>
-                
-    Mene pura code aapko de diya isko pehle jaisa kardo website ka form Cash on delivery ke bad hi show hona chaiye sab kuch shi kar ke yeh code mujhe do
+
+</body>
+                </html>
