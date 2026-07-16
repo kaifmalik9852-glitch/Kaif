@@ -493,14 +493,6 @@ Border-radius: 50%;<!DOCTYPE html>
 </div>
                 
 
-    <!-- Popup Window Control Script -->
-        <script>
-        function openModal() {
-            document.getElementById('codModal').style.display = 'flex';
-        }
-        function closeModal() {
-            document.getElementById('codModal').style.display = 'none';
-        }
         <div id="codModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">X CLOSE</span>
@@ -519,125 +511,31 @@ Border-radius: 50%;<!DOCTYPE html>
                     <input type="text" name="address" required>
                 </div>
                 <div class="input-group">
-                    <label>City</label>
-                    <input type="text" name="city" required>
+                    <label>City & Pincode</label>
+                    <input type="text" name="city_zip" required>
                 </div>
-                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">PLACE ORDER NOW</button>
+                <button type="submit" class="btn btn-online" style="width: 100%; margin-top: 10px;">PLACE ORDER NOW</button>
             </form>
         </div>
     </div>
 
     <script>
-      var form = document.getElementById("my-form");
-      async function handleSubmit(event) {
-        event.preventDefault();
-        var data = new FormData(event.target);
-        fetch(event.target.action, {
-          method: form.method,
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        }).then(response => {
-          if (response.ok) {
-            window.location.href = "success.html"; // Redirect to success page
-          } else {
-            alert("Oops! Kuch error aaya, phir se try karein.");
-          }
+        function openModal() { document.getElementById('codModal').style.display = 'block'; }
+        function closeModal() { document.getElementById('codModal').style.display = 'none'; }
+        
+        var form = document.getElementById("my-form");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var data = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) { window.location.href = "success.html"; }
+                else { alert("Error! Phir se try karein."); }
+            });
         });
-      }
-      form.addEventListener("submit", handleSubmit);
-    </script>
-                
-      form.addEventListener("submit", handleSubmit);
-        </script>
-                
-                    <div id="codModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">X CLOSE</span>
-            <h3>SHIPPING INFORMATION</h3>
-            <form id="my-form" action="https://formspree.io/f/xaqrqlyo" method="POST">
-                <div class="input-group">
-                    <label>Mobile Number</label>
-                    <input type="tel" name="phone" required>
-                </div>
-                <div class="input-group">
-                    <label>House / Flat No. & Area</label>
-                    <input type="text" name="address" required>
-                </div>
-                <button type="submit" class="btn btn-online" style="margin-top: 10px; width: 100%;">PLACE ORDER NOW</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-      var form = document.getElementById("my-form");
-      async function handleSubmit(event) {
-        event.preventDefault();
-        var data = new FormData(event.target);
-        fetch(event.target.action, {
-          method: form.method,
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        }).then(response => {
-          if (response.ok) {
-            window.location.href = "success.html"; 
-          } else {
-            alert("Oops! Kuch error aaya, phir se try karein.");
-          }
-        });
-      }
-      form.addEventListener("submit", handleSubmit);
-    </script>
-                
-                <div class="input-group">
-                    <label>Full Name</label>
-                    <input type="text" name="name" required>
-                </div>
-                
-                <div class="input-group">
-                    <label>Landmark (Optional)</label>
-                    <input type="text" name="landmark">
-                </div>
-                <div class="form-row">
-                    <div class="input-group">
-                        <label>City</label>
-                        <input type="text" name="city" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Pincode</label>
-                        <input type="number" name="pincode" required>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label>State</label>
-                    <input type="text" name="state" required>
-                </div>
-                <button type="submit" class="btn btn-online" style="margin-top: 10px; width: 100%;">PLACE ORDER NOW</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-      var form = document.getElementById("my-form");
-      async function handleSubmit(event) {
-        event.preventDefault();
-        var data = new FormData(event.target);
-        fetch(event.target.action, {
-          method: form.method,
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        }).then(response => {
-          if (response.ok) {
-            alert("Order Successfully Placed!");
-            closeModal();
-            form.reset();
-          } else {
-            alert("Oops! Kuch error aaya, phir se try karein.");
-          }
-        });
-      }
-      form.addEventListener("submit", handleSubmit);
     </script>
                 
     
-</body>
-</html>
