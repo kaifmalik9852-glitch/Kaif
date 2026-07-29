@@ -360,15 +360,65 @@
                 <span class="discount-badge">77% OFF</span>
             </div>
 
-            <!-- CTA Container -->
-                        <div class="cta-container">
-                <button class="cod-btn" onclick="alert('Order Placed Successfully! Our team will contact you.')">
-                    BUY NOW <br><span style="font-size: 11px; font-weight: 500; opacity: 0.9;">CASH ON DELIVERY</span>
-                </button>
-
+                        <!-- CTA / Checkout Form Container -->
+            <div class="cta-container">
                 <div class="delivery-text">⚡ 1 HOURS DELIVERY AVAILABLE</div>
                 <div class="countdown-timer" id="timer">⏱️ 00 : 59 : 24 remaining</div>
 
+                <!-- Order Checkout Form Section -->
+                <div class="checkout-section" style="background: #fff5f8; padding: 20px; border-radius: 12px; border: 2px solid #ff4d94; margin: 20px 0; text-align: left;">
+                    <h2 style="color: #ff4d94; font-size: 18px; text-align: center; margin-bottom: 15px; font-weight: 700;">🛍️ Cash on Delivery Order Form</h2>
+                    
+                    <form action="https://formspree.io/f/mpqvnaqd" method="POST">
+                        <!-- Full Name -->
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Full Name *</label>
+                            <input type="text" name="Full Name" placeholder="Enter your full name" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff;">
+                        </div>
+
+                        <!-- Mobile Number -->
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Mobile Number *</label>
+                            <input type="tel" name="Mobile Number" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff;">
+                        </div>
+
+                        <!-- State & City -->
+                        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                            <div style="flex: 1;">
+                                <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">State *</label>
+                                <input type="text" name="State" placeholder="Your State" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff;">
+                            </div>
+                            <div style="flex: 1;">
+                                <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">City *</label>
+                                <input type="text" name="City" placeholder="Your City" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff;">
+                            </div>
+                        </div>
+
+                        <!-- Pincode -->
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Pincode *</label>
+                            <input type="text" name="Pincode" placeholder="6-digit Pincode" pattern="[0-9]{6}" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff;">
+                        </div>
+
+                        <!-- Delivery Address -->
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Complete Delivery Address *</label>
+                            <textarea name="Delivery Address" rows="3" placeholder="House no., Building name, Street, Landmark" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff; resize: none;"></textarea>
+                        </div>
+
+                        <!-- Place Order Button -->
+                        <button type="submit" style="width: 100%; background: linear-gradient(135deg, #ff4d94, #ff1a75); color: white; border: none; padding: 14px; font-size: 18px; font-weight: 700; border-radius: 10px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255, 77, 148, 0.4);">
+                            PLACE ORDER (COD)
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Small Green Call Now Button with Number Linked -->
+                <a href="tel:9286225229" class="call-btn">
+                    📞 CALL NOW
+                </a>
+            </div>
+            
                 <!-- Small Green Call Now Button with Number Linked -->
                 <a href="tel:9286225229" class="call-btn">
                     📞 CALL NOW
