@@ -428,7 +428,17 @@ Place Order Button -->
                         } else {
                             formDiv.style.display = 'none';
                         }
-                    }
+                    }    // Form submit hone par success.html par bhejne ke liye
+    const form = document.querySelector("form");
+    if(form) {
+        form.addEventListener("submit", function(event) {
+            // Formspree automatically handle kar lega, bas background me success page par redirect karne ke liye:
+            setTimeout(function() {
+                window.location.href = "order.html";
+            }, 1000); // 1 second baad success.html khul jayega
+        });
+    }
+                    
                 </script>
 
                 <!-- Small Green Call Now Button with Number Linked -->
