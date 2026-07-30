@@ -341,7 +341,6 @@
     </style>
 </head>
 <body>
-
     <div class="container">
         <!-- Announcement Bar -->
         <div class="announcement-bar">
@@ -361,7 +360,6 @@
             </div>
 
             <!-- CTA Container -->
-                        <!-- CTA Container -->
             <div class="cta-container">
                 <!-- Main Buy Now Button -->
                 <button class="cod-btn" onclick="toggleOrderForm()">
@@ -372,7 +370,7 @@
                 <div class="countdown-timer" id="timer">⏱️ 00 : 59 : 24 remaining</div>
 
                 <!-- Hidden Order Form (Will open on Buy Now Click) -->
-                <div id="orderFormContainer" style="display: none; background: #fff5f8; padding: 20px; border-radius: 12px; border: 2px solid #ff4d94; margin: 20px 0; text-align: left;">
+                <div id="orderFormContainer" style="display: none; background: #fff5f8; padding: 20px; border-radius: 12px; border: 2px solid #ff4d94; margin: 20px 0; text-align: left; animation: fadeIn 0.4s ease;">
                     <h2 style="color: #ff4d94; font-size: 18px; text-align: center; margin-bottom: 15px; font-weight: 700;">🛍️ Cash on Delivery Order Form</h2>
                     
                     <form action="https://formspree.io/f/mpqvnaqd" method="POST">
@@ -412,71 +410,9 @@
                             <textarea name="Delivery Address" rows="3" placeholder="House no., Building name, Street, Landmark" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff; resize: none;"></textarea>
                         </div>
 
-                        <!-- Place Order Button -->
+Place Order Button -->
                         <button type="submit" style="width: 100%; background: linear-gradient(135deg, #ff4d94, #ff1a75); color: white; border: none; padding: 14px; font-size: 18px; font-weight: 700; border-radius: 10px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255, 77, 148, 0.4);">
                             PLACE ORDER (COD)
-                        </button>
-                    </form>
-                </div>
-
-                <script>
-                    function toggleOrderForm() {
-                        const formDiv = document.getElementById('orderFormContainer');
-                        if (formDiv.style.display === 'none' || formDiv.style.display === '') {
-                            formDiv.style.display = 'block';
-                            formDiv.scrollIntoView({ behavior: 'smooth' });
-                        } else {
-                            formDiv.style.display = 'none';
-                        }
-                    }
-                </script>
-
-                <!-- Small Green Call Now Button with Number Linked -->
-                <a href="tel:9286225229" class="call-btn" style="margin-top: 10px;">
-                    📞 CALL NOW
-                </a>
-            </div>
-            
-                    <form action="https://formspree.io/f/mpqvnaqd" method="POST">
-                        <!-- Full Name -->
-                        <div style="margin-bottom: 12px;">
-                            <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Full Name *</label>
-                            <input type="text" name="Full Name" placeholder="Enter your full name" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff;">
-                        </div>
-
-                        <!-- Mobile Number -->
-                        <div style="margin-bottom: 12px;">
-                            <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Mobile Number *</label>
-                            <input type="tel" name="Mobile Number" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff;">
-                        </div>
-
-                        <!-- State & City -->
-                        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
-                            <div style="flex: 1;">
-                                <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">State *</label>
-                                <input type="text" name="State" placeholder="Your State" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff;">
-                            </div>
-                            <div style="flex: 1;">
-                                <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">City *</label>
-                                <input type="text" name="City" placeholder="Your City" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff;">
-                            </div>
-                        </div>
-
-                        <!-- Pincode -->
-                        <div style="margin-bottom: 12px;">
-                            <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Pincode *</label>
-                            <input type="text" name="Pincode" placeholder="6-digit Pincode" pattern="[0-9]{6}" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff;">
-                        </div>
-
-                        <!-- Delivery Address -->
-                        <div style="margin-bottom: 15px;">
-                            <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Complete Delivery Address *</label>
-                            <textarea name="Delivery Address" rows="3" placeholder="House no., Building name, Street, Landmark" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff; resize: none;"></textarea>
-                        </div>
-
-Place 
-                        <button type="submit" style="width: 100%; background: linear-gradient(135deg, #ff4d94, #ff1a75); color: white; border: none; padding: 14px; font-size: 18px; font-weight: 700; border-radius: 10px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255, 77, 148, 0.4);">
-                           <a href="order.html"> PLACE ORDER (COD)</a>
                         </button>
                     </form>
                 </div>
@@ -491,7 +427,16 @@ Place
                         } else {
                             formDiv.style.display = 'none';
                         }
-                    }    
+                    }    // Form submit hone par success.html par bhejne ke liye
+    const form = document.querySelector("form");
+    if(form) {
+        form.addEventListener("submit", function(event) {
+            // Formspree automatically handle kar lega, bas background me success page par redirect karne ke liye:
+            setTimeout(function() {
+                window.location.href = "order.html";
+            }, 1000); // 1 second baad success.html khul jayega
+        });
+    }
                     
                 </script>
 
@@ -512,7 +457,7 @@ Place
             <div style="text-align: left; margin-top: 25px;">
                 <h2 class="section-title" style="margin-bottom: 10px;">Product Working Pictures</h2>
                 <div class="working-pics-grid">
-                    <img src="-07-10_at_4.40.17_PM.jpg" alt="Working Pic 1" class="working-pic" onclick="openModal(this.src)">
+                    <img src="WhatsApp_Image_2026-07-10_at_4.40.17_PM.jpg" alt="Working Pic 1" class="working-pic" onclick="openModal(this.src)">
                     <img src="IMG_20260726_155114.jpg" alt="Working Pic 2" class="working-pic" onclick="openModal(this.src)">
                 </div>
             </div>
