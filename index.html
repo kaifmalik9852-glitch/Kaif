@@ -411,9 +411,9 @@
                             <textarea name="Delivery Address" rows="3" placeholder="House no., Building name, Street, Landmark" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff; resize: none;"></textarea>
                         </div>
 
-Place Order Button -->
+Place 
                         <button type="submit" style="width: 100%; background: linear-gradient(135deg, #ff4d94, #ff1a75); color: white; border: none; padding: 14px; font-size: 18px; font-weight: 700; border-radius: 10px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255, 77, 148, 0.4);">
-                            PLACE ORDER (COD)
+                           <a href="order.html"> PLACE ORDER (COD)</a>
                         </button>
                     </form>
                 </div>
@@ -428,16 +428,7 @@ Place Order Button -->
                         } else {
                             formDiv.style.display = 'none';
                         }
-                    }    // Form submit hone par success.html par bhejne ke liye
-    const form = document.querySelector("form");
-    if(form) {
-        form.addEventListener("submit", function(event) {
-            // Formspree automatically handle kar lega, bas background me success page par redirect karne ke liye:
-            setTimeout(function() {
-                window.location.href = "order.html";
-            }, 1000); // 1 second baad success.html khul jayega
-        });
-    }
+                    }    
                     
                 </script>
 
@@ -458,7 +449,7 @@ Place Order Button -->
             <div style="text-align: left; margin-top: 25px;">
                 <h2 class="section-title" style="margin-bottom: 10px;">Product Working Pictures</h2>
                 <div class="working-pics-grid">
-                    <img src="WhatsApp_Image_2026-07-10_at_4.40.17_PM.jpg" alt="Working Pic 1" class="working-pic" onclick="openModal(this.src)">
+                    <img src="-07-10_at_4.40.17_PM.jpg" alt="Working Pic 1" class="working-pic" onclick="openModal(this.src)">
                     <img src="IMG_20260726_155114.jpg" alt="Working Pic 2" class="working-pic" onclick="openModal(this.src)">
                 </div>
             </div>
