@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff0f5;
+            margin: 0;
+            padding: 10px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .success-box {
+            background-color: #ffffff;
+            border: 2px solid #ff1493;
+            padding: 20px 15px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 320px;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.2);
+        }
+        .success-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #28a745;
+            color: white;
+            font-size: 26px;
+            line-height: 50px;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            box-shadow: 0 3px 8px rgba(40, 167, 69, 0.3);
+        }
+        .success-box h3 {
+            margin: 0 c 8px 0;
+            color: #ff1493;
+            font-size: 20px;
+        }
+        .success-box p {
+            margin: 5px 0;
+            color: #333;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .confirm-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745, #218838);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 15px;
+            box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3);
+            transition: 0.3s;
+        }
+        .confirm-btn:hover {
+            background: linear-gradient(135deg, #218838, #1e7e34);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+<audio id="successSound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_12b0c7443e.mp3?filename=success-1-6297.mp3"></audio>
+
+<div class="success-box">
+    <div class="success-icon">&#10004;</div>
+    
+    <h3>Order Successfully Placed!</h3>
+    <p>⚡ 1 Hour Delivery Available to your location.</p>
+    <p style="font-size: 11px; color: #666; font-weight: normal; margin-top: 6px;">We will call you shortly to confirm your order.</p>
+
+    <a href="index.html" class="confirm-btn">Confirm / Go Back</a>
+</div>
+
+<script>
+    window.addEventListener("DOMContentLoaded", function() {
+        var sound = document.getElementById("successSound");
+        sound.play().catch(error => {
+            console.log("Audio autoplay restricted by browser.");
+        });
+    });
+</script>
+
+</body>
+</html>
