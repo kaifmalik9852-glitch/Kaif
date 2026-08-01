@@ -359,18 +359,13 @@
                 <span class="discount-badge">77% OFF</span>
             </div>
 
-            <!-- CTA Container -->
+                        <!-- CTA / Checkout Form Container -->
             <div class="cta-container">
-                <!-- Main Buy Now Button -->
-                <button class="cod-btn" onclick="toggleOrderForm()">
-                    BUY NOW <br><span style="font-size: 11px; font-weight: 500; opacity: 0.9;">CASH ON DELIVERY</span>
-                </button>
-
                 <div class="delivery-text">⚡ 1 HOURS DELIVERY AVAILABLE</div>
                 <div class="countdown-timer" id="timer">⏱️ 00 : 59 : 24 remaining</div>
 
-                <!-- Hidden Order Form (Will open on Buy Now Click) -->
-                <div id="orderFormContainer" style="display: none; background: #fff5f8; padding: 20px; border-radius: 12px; border: 2px solid #ff4d94; margin: 20px 0; text-align: left; animation: fadeIn 0.4s ease;">
+                <!-- Order Checkout Form Section -->
+                <div class="checkout-section" style="background: #fff5f8; padding: 20px; border-radius: 12px; border: 2px solid #ff4d94; margin: 20px 0; text-align: left;">
                     <h2 style="color: #ff4d94; font-size: 18px; text-align: center; margin-bottom: 15px; font-weight: 700;">🛍️ Cash on Delivery Order Form</h2>
                     
                     <form action="https://formspree.io/f/mpqvnaqd" method="POST">
@@ -410,42 +405,24 @@
                             <textarea name="Delivery Address" rows="3" placeholder="House no., Building name, Street, Landmark" required style="width: 100%; padding: 10px; border: 1px solid #ffb3d1; border-radius: 8px; font-size: 14px; outline: none; background: #fff; resize: none;"></textarea>
                         </div>
 
-Place Order Button -->
+                        <!-- Place Order Button -->
                         <button type="submit" style="width: 100%; background: linear-gradient(135deg, #ff4d94, #ff1a75); color: white; border: none; padding: 14px; font-size: 18px; font-weight: 700; border-radius: 10px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255, 77, 148, 0.4);">
                             PLACE ORDER (COD)
                         </button>
                     </form>
                 </div>
 
-                <script>
-                    // Function to open order form smoothly on Buy Now click
-                    function toggleOrderForm() {
-                        const formDiv = document.getElementById('orderFormContainer');
-                        if (formDiv.style.display === 'none' || formDiv.style.display === '') {
-                            formDiv.style.display = 'block';
-                            formDiv.scrollIntoView({ behavior: 'smooth' });
-                        } else {
-                            formDiv.style.display = 'none';
-                        }
-                    }    // Form submit hone par success.html par bhejne ke liye
-    const form = document.querySelector("form");
-    if(form) {
-        form.addEventListener("submit", function(event) {
-            // Formspree automatically handle kar lega, bas background me success page par redirect karne ke liye:
-            setTimeout(function() {
-                window.location.href = "order.html";
-            }, 1000); // 1 second baad success.html khul jayega
-        });
-    }
-                    
-                </script>
-
                 <!-- Small Green Call Now Button with Number Linked -->
-                <a href="tel:9286225229" class="call-btn" style="margin-top: 10px;">
+                <a href="tel:9286225229" class="call-btn">
                     📞 CALL NOW
                 </a>
             </div>
-
+            
+                <!-- Small Green Call Now Button with Number Linked -->
+                <a href="tel:9286225229" class="call-btn">
+                    📞 CALL NOW
+                </a>
+            </div>
 
             <!-- Replacement Policy Notice -->
             <div class="policy-box">
