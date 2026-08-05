@@ -107,6 +107,19 @@ function submitOrder(event) {
     });
 }
 </script>
+    <script>
+    window.addEventListener("DOMContentLoaded", function() {
+        var sound = document.getElementById("successSound");
+        
+        // Play karne ki koshish karein
+        sound.play().catch(error => {
+            // Agar browser block kare, toh screen par kahin bhi pehla touch/click hote hi sound baj jayega
+            document.body.addEventListener("click", function() {
+                sound.play();
+            }, { once: true });
+        });
+    });
+    </script>
     
 
 </body>
