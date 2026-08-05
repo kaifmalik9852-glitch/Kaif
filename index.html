@@ -572,6 +572,19 @@
             alert('Thank you! Your review has been added successfully.');
         }
     </script>
-
+<script>
+function toggleForm() {
+    var formDiv = document.getElementById("form-container");
+    if (formDiv) {
+        if (formDiv.style.display === "none" || formDiv.style.display === "") {
+            formDiv.style.display = "block";
+            formDiv.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            formDiv.style.display = "none";
+        }
+    }
+}
+</script>
+        
 </body>
 </html>
