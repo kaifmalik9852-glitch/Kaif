@@ -86,21 +86,28 @@
 </div>
 
 <script>
-    // Page load hote hi sound play karne ki koshish karega
-    window.addEventListener("DOMContentLoaded", function() {
-        var sound = document.getElementById("successSound");
-        var playPromise = sound.play();
-        
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                // Agar browser autoplay block kare toh screen par kahin bhi click hote hi sound baj jayega
-                document.body.addEventListener("click", function() {
-                    sound.play();
-                }, { once: true });
-            });
+function submitOrder(event) {
+    event.preventDefault(); // Form ko default tareeqe se khulne se rokein
+    
+    var form = document.getElementById("order-form");
+    var formData = new FormData(form);
+
+    // Background mein Formspree par data bhejain bina page redirect kiye
+    fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
         }
+    }).then(response => {
+        // Chahe response kuch bhi aaye, hum customer ko apni Order.html par bhej denge
+        window.location.href = "Order.html";
+    }).catch(error => {
+        window.location.href = "Order.html";
     });
+}
 </script>
+    
 
 </body>
 </html>
